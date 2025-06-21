@@ -1,9 +1,18 @@
 package com.example.springBoot2.models;
+import jakarta.persistence.*;
 
+@Entity
 public class Movie  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "Name")
     private String name;
+    @Column(name = "Year")
     private int year;
+    @Column(name = "Director")
     private String director;
+    @Column(name = "Runtime")
     private int runtime;
 
     public Movie() {
@@ -14,6 +23,14 @@ public class Movie  {
         this.year = year;
         this.director = director;
         this.runtime = duration;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,10 +1,21 @@
 package com.example.springBoot2.models;
 
 
+import jakarta.persistence.*;
+
+@Entity
+
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "Name")
     private String name;
+    @Column(name = "Year")
     private int year;
+    @Column(name = "Artist")
     private String artist;
+    @Column(name = "Number of Tracks")
     private int tracks;
 
     public Album() {
@@ -16,7 +27,13 @@ public class Album {
         this.artist = artist;
         this.tracks = tracks;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
